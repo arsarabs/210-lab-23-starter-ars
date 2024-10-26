@@ -114,17 +114,32 @@ void delete_goat(list<Goat>& trip) {
     cout << "Deleting goat: " << it->get_description() << endl;
     trip.erase(it); // Remove the Goat from the trip list
 }
-void add_goat(list<Goat>& trip, string[], string[]) {
+void add_goat(list<Goat>& trip, string names[], string colors[]) {
     //the strucutre of this function shouldn't be too bad (SEE BELOW)
     
-    //1. Randomly select name from names array
-    //2. generate an age of 0-MAX_AGE
-    //3.  Create a new Goat object with the selected attributes
-    //4. Add the new Goat to the trip list (using push back)
-    //5. Output (with format)
-}
-void display_trip(list<Goat> trip) {
+    //1. Randomly select name from names array & color from the colors array
+     string selected_name = names[rand() % SZ_NAMES];
+     string selected_color = colors[rand() % SZ_COLORS];
 
+
+    //2. generate an age of 0-MAX_AGE
+     int selected_age = rand() % (MAX_AGE + 1); // using random formula
+
+    //3.  Create a new Goat object with the selected attributes
+    Goat new_goat(selected_name, selected_age, selected_color);
+
+    //4. Add the new Goat to the trip list (using push back)
+    trip.push_back(new_goat);
+
+    //5. Output (with format)
+    cout << fixed << setprecision(0); // Ensure age is displayed without decimal places
+    cout << "Goat added: " << new_goat.get_description() << endl;
+}
+//This function displays all the details
+void display_trip(list<Goat> trip) {
+    if (trip.empty()) { // Check if the trip has any Goats
+        cout << "The trip has no goats." << endl;
+        return;
 }
 int main_menu() {
 
