@@ -50,21 +50,26 @@ int main() {
     //MAIN MENU
     while (again) {
         int userChoice = main_menu();
-        switch (choice) {
+        switch (userChoice) {
         case 1:
             //add a goat to trip
+            add_goat(trip, names, colors); // Add a goat to the trip
             break;
         case 2:
             //delete a goat from the trip
+            delete_goat(trip); // Delete a goat from the trip
             break;
         case 3:
             //display all goats
+            display_trip(trip); // Display all goats in the trip
             break;
         case 4:
+            again = false; // Exit the loop
             //Exit program
             break;
         default:
             //Invalid choice
+            cout << "INVALID CHOICE" << endl;
         }
     }
     return 0;
@@ -94,8 +99,6 @@ int select_goat(list<Goat> trip) {
             valid = true; // Valid input received
         }
     }
-    
-
     return userChoice; //return user's choice
 }
 void delete_goat(list<Goat>& trip) {
@@ -120,7 +123,6 @@ void add_goat(list<Goat>& trip, string names[], string colors[]) {
     //1. Randomly select name from names array & color from the colors array
      string selected_name = names[rand() % SZ_NAMES];
      string selected_color = colors[rand() % SZ_COLORS];
-
 
     //2. generate an age of 0-MAX_AGE
      int selected_age = rand() % (MAX_AGE + 1); // using random formula
@@ -185,7 +187,6 @@ int main_menu() {
             valid = true; // Valid input received
         }
     }
-
     return choice; // Return the validated choice
     }
 
