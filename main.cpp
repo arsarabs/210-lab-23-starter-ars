@@ -166,7 +166,7 @@ void display_trip(list<Goat> trip) {
     for (const auto& color : unique_colors) {
         cout << "- " << color << endl;
     }
-}
+} 
 int main_menu() {
     int userChoice;
     bool valid = false;
