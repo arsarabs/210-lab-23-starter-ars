@@ -28,19 +28,45 @@ int main() {
     int i = 0;
     ifstream fin("names.txt");
     ifstream fin1("colors.txt");
+    list<Goat> trip; // List to store Goats for the trip
 
-    // read & populate arrays for names and colors
-  
-    
-
-    int i = 0;
-    while (fin >> names[i++]);
+    // read & populate arrays for both names and colors arrays
+    if (!fin) {
+        cout << "ERROR! Couldn't open file." << endl;
+        return 1;
+    }
+    while (i < SZ_NAMES && fin >> names[i++]); // populating name array
     fin.close();
 
     i = 0;
-    while (fin1 >> colors[i++]);
+
+    if (!fin1) {
+        cout << "ERROR! Couldn't open file." << endl;
+        return 1;
+    }
+    while (i < SZ_COLORS && fin1 >> colors[i++]); // populating color array
     fin1.close();
 
+    //MAIN MENU
+    while (again) {
+        int userChoice = main_menu();
+        switch (choice) {
+        case 1:
+            //add a goat to trip
+            break;
+        case 2:
+            //delete a goat from the trip
+            break;
+        case 3:
+            //display all goats
+            break;
+        case 4:
+            //Exit program
+            break;
+        default:
+            //Invalid choice
+        }
+    }
     return 0;
 }
 
