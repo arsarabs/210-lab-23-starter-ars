@@ -5,7 +5,11 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <set>
+#include <limits>
+#include <ctime>
 #include "Goat.h"
+
 using namespace std;
     
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
@@ -76,7 +80,7 @@ int main() {
 }
 
 int select_goat(list<Goat> trip) {
-    dispaly_trip(trip);
+    display_trip(trip);
     
     bool valid = false; // input validiation flag
     int userChoice; // user's choice
@@ -176,10 +180,10 @@ int main_menu() {
         cout << "[4] Quit" << endl;
         cout << "Choice --> ";
 
-        cin >> choice; 
+        cin >> userChoice;
 
         // Check for input failure or invalid range
-        if (cin.fail() || choice < 1 || choice > 4) {
+        if (cin.fail() || userChoice < 1 || userChoice > 4) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
         }
@@ -187,7 +191,7 @@ int main_menu() {
             valid = true; // Valid input received
         }
     }
-    return choice; // Return the validated choice
+    return userChoice; // Return the validated choice
     }
 
 }
