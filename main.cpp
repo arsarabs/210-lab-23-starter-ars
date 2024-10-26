@@ -179,6 +179,13 @@ int main_menu() {
         // Check for input failure or invalid range
         if (cin.fail() || choice < 1 || choice > 4) {
             cin.clear();
+        }
+        else {
+            valid = true; // Valid input received
+        }
+    }
+
+    return choice; // Return the validated choice
     }
 
 }
