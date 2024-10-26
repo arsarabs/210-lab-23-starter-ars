@@ -4,7 +4,7 @@
 #define GOAT_H
 #include <iostream>
 using namespace std;
-
+ 
 class Goat {
 private:
     string name;
