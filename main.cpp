@@ -99,7 +99,20 @@ int select_goat(list<Goat> trip) {
     return userChoice; //return user's choice
 }
 void delete_goat(list<Goat>& trip) {
+    if (trip.empty()) { // Check if the trip has any Goats to delete
+        cout << "The trip has no goats to delete." << endl;
+        return;
+    }
 
+    int choice = select_goat(trip); // Get the user's choice of Goat to delete
+    if (choice == -1) { // Check if selection was invalid
+        return;
+    }
+    //iterator to Goat to be deleted & moves iterator to ssaid Goat
+    auto it = trip.begin();
+    advance(it, choice - 1);
+    cout << "Deleting goat: " << it->get_description() << endl;
+    trip.erase(it); // Remove the Goat from the trip list
 }
 void add_goat(list<Goat>& trip, string[], string[]) {
 
