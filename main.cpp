@@ -73,10 +73,12 @@ int main() {
 int select_goat(list<Goat> trip) {
     dispaly_trip(trip);
     
-    
     bool valid = false; // input validiation flag
     int userChoice; // user's choice
 
+    if (trip.empty()) { // Check again if the trip is empty
+        return -1;
+    }
     //until valid loop
     while (!valid) {
         cout << "Number of goat to delete: " << endl;
