@@ -81,7 +81,18 @@ int select_goat(list<Goat> trip) {
     while (!valid) {
         cout << "Number of goat to delete: " << endl;
         cin >> userChoice;
+
+        // Check for input failure or invalid range
+        if (cin.fail() || userChoice < 1 || userChoice > trip.size()) {
+            cin.clear(); // Clear the error flag
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+            cout << "enter a number between 1 - " << trip.size() << endl;
+        }
+        else {
+            valid = true; // Valid input received
+        }
     }
+    
 
     return userChoice; //return user's choice
 }
