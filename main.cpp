@@ -70,5 +70,33 @@ int main() {
     return 0;
 }
 
+int select_goat(list<Goat> trip) {
+    dispaly_trip(trip);
+    
+    
+    bool valid = false; // input validiation flag
+    int userChoice; // user's choice
+
+    //until valid loop
+    while (!valid) {
+        cout << "Number of goat to delete: " << endl;
+        cin >> userChoice;
+    }
+
+    return userChoice; //return user's choice
+}
+void delete_goat(list<Goat>& trip) {
+
+}
+void add_goat(list<Goat>& trip, string[], string[]) {
+
+}
+void display_trip(list<Goat> trip) {
+
+}
+int main_menu() {
+
+}
+
 
 
