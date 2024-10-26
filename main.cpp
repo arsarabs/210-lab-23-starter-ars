@@ -162,6 +162,24 @@ void display_trip(list<Goat> trip) {
     }
 }
 int main_menu() {
+    int userChoice;
+    bool valid = false;
+
+    while (!valid) {
+        // menu options
+        cout << "*** GOAT MANAGER 3001 ***" << endl;
+        cout << "[1] Add a goat" << endl;
+        cout << "[2] Delete a goat" << endl;
+        cout << "[3] List goats" << endl;
+        cout << "[4] Quit" << endl;
+        cout << "Choice --> ";
+
+        cin >> choice; 
+
+        // Check for input failure or invalid range
+        if (cin.fail() || choice < 1 || choice > 4) {
+            cin.clear();
+    }
 
 }
 
