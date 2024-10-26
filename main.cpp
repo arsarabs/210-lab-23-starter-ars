@@ -179,6 +179,7 @@ int main_menu() {
         // Check for input failure or invalid range
         if (cin.fail() || choice < 1 || choice > 4) {
             cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Discard invalid input
         }
         else {
             valid = true; // Valid input received
