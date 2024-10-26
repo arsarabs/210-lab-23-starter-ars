@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <list>
 #include <set>
+#include <cstdlib>
 #include <limits>
 #include <ctime>
 #include "Goat.h"
@@ -79,7 +80,7 @@ int main() {
     return 0;
 }
 
-int select_goat(list<Goat> trip) {
+int select_goat(list<Goat>& trip) {
     display_trip(trip);
     
     bool valid = false; // input validiation flag
