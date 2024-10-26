@@ -135,11 +135,31 @@ void add_goat(list<Goat>& trip, string names[], string colors[]) {
     cout << fixed << setprecision(0); // Ensure age is displayed without decimal places
     cout << "Goat added: " << new_goat.get_description() << endl;
 }
-//This function displays all the details
+//This function displays all the details 
 void display_trip(list<Goat> trip) {
+    int index = 1; // Counter for numbering Goats
+    set<string> unique_colors; // Set to store unique colors
+
     if (trip.empty()) { // Check if the trip has any Goats
         cout << "The trip has no goats." << endl;
         return;
+    }
+
+    cout << "current trip goats" << endl;
+    cout << "#" << "Name " << "Age " << "Color " << endl;
+
+    // Iterate through the trip list and display each Goat's details
+    for (const auto& goat : trip) {
+        cout << index++ << goat.get_name() << goat.get_age() << goat.get_color() << endl;
+
+        unique_colors.insert(goat.get_color()); // Insert color into the set
+    }
+
+    // Display the unique colors present in the trip
+    cout << "\nUnique Colors in Trip:" << endl;
+    for (const auto& color : unique_colors) {
+        cout << "- " << color << endl;
+    }
 }
 int main_menu() {
 
