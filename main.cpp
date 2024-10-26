@@ -115,7 +115,13 @@ void delete_goat(list<Goat>& trip) {
     trip.erase(it); // Remove the Goat from the trip list
 }
 void add_goat(list<Goat>& trip, string[], string[]) {
-
+    //the strucutre of this function shouldn't be too bad (SEE BELOW)
+    
+    //1. Randomly select name from names array
+    //2. generate an age of 0-MAX_AGE
+    //3.  Create a new Goat object with the selected attributes
+    //4. Add the new Goat to the trip list (using push back)
+    //5. Output (with format)
 }
 void display_trip(list<Goat> trip) {
 
