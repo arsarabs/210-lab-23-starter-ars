@@ -90,7 +90,7 @@ int select_goat(list<Goat> trip) {
     }
     //until valid loop
     while (!valid) {
-        cout << "Number of goat to delete: " << endl;
+        cout << "Number of the goat to delete: " << endl;
         cin >> userChoice;
 
         // Check for input failure or invalid range
@@ -118,7 +118,7 @@ void delete_goat(list<Goat>& trip) {
     //iterator to Goat to be deleted & moves iterator to ssaid Goat
     auto it = trip.begin();
     advance(it, choice - 1);
-    cout << "Deleting goat: " << it->get_description() << endl;
+
     trip.erase(it); // Remove the Goat from the trip list
 }
 void add_goat(list<Goat>& trip, string names[], string colors[]) {
@@ -138,8 +138,8 @@ void add_goat(list<Goat>& trip, string names[], string colors[]) {
     trip.push_back(new_goat);
 
     //5. Output (with format)
-    cout << fixed << setprecision(0); // Ensure age is displayed without decimal places
-    cout << "Goat added: " << new_goat.get_description() << endl;
+    cout << fixed << setprecision(0); 
+
 }
 //This function displays all the details 
 void display_trip(list<Goat> trip) {
@@ -150,22 +150,24 @@ void display_trip(list<Goat> trip) {
         cout << "The trip has no goats." << endl;
         return;
     }
+    cout << "     *** Current Trip Goats ***     " << endl;
+    cout << endl;
+   
 
-    cout << "current trip goats" << endl;
-    cout << "#" << "Name " << "Age " << "Color " << endl;
+    cout << left << setw(5) << "GOAT# " << setw(15) << "Name" << setw(10) << "Age" << "Color" << endl;
+    cout << string(40, '-') << endl;
 
     // Iterate through the trip list and display each Goat's details
     for (const auto& goat : trip) {
-        cout << index++ << goat.get_name() << goat.get_age() << goat.get_color() << endl;
+        cout << left << setw(5) << index++
+            << setw(15) << goat.get_name()
+            << setw(10) << goat.get_age()
+            << goat.get_color() << endl;
 
         unique_colors.insert(goat.get_color()); // Insert color into the set
     }
-
-    // Display the unique colors present in the trip
-    cout << "\nUnique Colors in Trip:" << endl;
-    for (const auto& color : unique_colors) {
-        cout << "- " << color << endl;
-    }
+    cout << endl;
+    cout << endl;
 } 
 int main_menu() {
     int userChoice;
@@ -192,9 +194,10 @@ int main_menu() {
         }
     }
     return userChoice; // Return the validated choice
+
     }
 
-}
+
 
 
 
